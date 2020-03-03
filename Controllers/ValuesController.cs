@@ -17,33 +17,18 @@ namespace WebApi.Controllers
 
         // GET api/values
         [HttpGet]
-        //     public ActionResult<IEnumerable<Product>> Get()
-        //     //public IEnumerable<Product> Get()
-        //     {
+             public IEnumerable<Product> Get()
+             {
 
 
 
-        //         //return new Product[] { product }.ToArray();
-        //         return Enumerable.Range(1, 17).Select(index => new Product
-        //         {
-        //             //Name = product.Name,
-        //             //Context = product.Context,
-        //             //CategoryId = product.CategoryId
-        //         })
-        //.ToArray();
+                return new Product[] { product }.ToArray();
+       
+                 }
+        
 
 
-        public IActionResult Get()
-        {
-            var model = new Product()
-            {
-                Name = "a",
-                Context = "Test",
-                CategoryId =1
-            };
 
-            return new ObjectResult(model);
-        }
 
         // GET api/values/5
         [HttpGet("{id}")]
@@ -79,20 +64,15 @@ namespace WebApi.Controllers
             List<Product> product = new List<Product>();
 
 
-            product.Add(new Product { Name = "ab" });
-            var w = new Product() { Name = json, Context = "Hot" };
-            //Console.WriteLine(JsonSerializer.Serialize<Product>(w));
-            return JsonSerializer.Serialize<Product>(w);
 
         }
-        //[HttpPost]
-        //public IActionResult CreateDocument([FromBody] Product model)
-        //{
-
-        //    return new ObjectResult(model);
-        //}
-
-
+        [HttpPost]
+        
+        public IActionResult CreateDocument([FromBody] Product model)
+            {
+            
+                return new ObjectResult(model);
+            }
 
         // PUT api/values/5
         [HttpPut("{id}")]
